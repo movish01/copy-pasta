@@ -1,0 +1,73 @@
+name: CopyPasta
+options:
+  bundleIdPrefix: com.copypasta
+  deploymentTarget:
+    macOS: "14.0"
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+
+targets:
+  CopyPastaMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: Shared
+      - path: macOS
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.copypasta.mac
+        PRODUCT_NAME: CopyPasta
+        INFOPLIST_KEY_LSUIElement: true
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        CODE_SIGN_ENTITLEMENTS: CopyPastaMac.entitlements
+    entitlements:
+      path: CopyPastaMac.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.network.server: true
+
+  CopyPastaiOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: Shared
+      - path: iOS
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.copypasta.ios
+        PRODUCT_NAME: CopyPasta
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        INFOPLIST_KEY_CFBundleDisplayName: CopyPasta
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: true
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_ENTITLEMENTS: CopyPastaiOS.entitlements
+    entitlements:
+      path: CopyPastaiOS.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.copypasta.shared
+
+  CopyPastaShareExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ShareExtension
+      - path: Shared/Models
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.copypasta.ios.share
+        PRODUCT_NAME: CopyPastaShare
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        INFOPLIST_FILE: ShareExtension/Info.plist
+    dependencies:
+      - target: CopyPastaiOS
+        embed: false

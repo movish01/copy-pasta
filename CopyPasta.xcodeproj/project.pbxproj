@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11EB4089906469C0180A64EF /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281636E3CD571788DDAA062 /* DevicesView.swift */; };
+		15FDD1526F267A591C30F218 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */; };
+		1F7CBDE1857639FE782CEC01 /* ClipboardItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */; };
+		25E8287A3B37F120FEABCE45 /* FilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB9B6ED0F551A3D46050ED /* FilterBar.swift */; };
+		2D520739CDF2DCDB2ABC8F4F /* CopyPastaMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112A8712B2898769087257D /* CopyPastaMacApp.swift */; };
+		36C26E280B334BE644A8244E /* ClipboardHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C95496C467D59B3C57A0B4 /* ClipboardHistoryViewModel.swift */; };
+		38894BBE932AA313B6C3E11F /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817333059331A6A58D51DE4 /* SyncStatusView.swift */; };
+		4410BBE58643FEE4DEDEB7B3 /* MenuBarPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7270C5E736940379A84F0D /* MenuBarPopover.swift */; };
+		47DB3C38EA4C31274F8F754D /* SyncMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */; };
+		4F8B135D819F3F4A012B23EA /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817333059331A6A58D51DE4 /* SyncStatusView.swift */; };
+		61D9E973F1DA44BF73D95BCD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7299280C9510DDC33AF47 /* ShareViewController.swift */; };
+		6962DCB0DE2B57DEDFB34EA0 /* ClipboardItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */; };
+		6CD761BB7CF5870B2BC4A381 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6799C6CFA64D7572917A36DE /* SettingsView.swift */; };
+		7AE45FE8F7A7729AA560825C /* MacClipboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD61771CF0707F8AC9A1C43F /* MacClipboardMonitor.swift */; };
+		84F0560C4E1CED941F1C854F /* SyncMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */; };
+		946D44CDB5B73DA578574CEE /* CopyPastaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EB362598A395EAFC17637 /* CopyPastaiOSApp.swift */; };
+		950A8C81725C2B10B69565B8 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01B10F0160BA385053340B /* ItemDetailView.swift */; };
+		95613119014C91FFBB35E0F5 /* BonjourSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */; };
+		9BEBDD3BAEDB7AF318C734F9 /* ClipboardHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C95496C467D59B3C57A0B4 /* ClipboardHistoryViewModel.swift */; };
+		9FB6CF6D8CFAAD5B709A8C34 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */; };
+		B2B28E4D87448D96D268A79F /* iOSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315BF19A9FF8DDFCBAE681A /* iOSSettingsView.swift */; };
+		B68D0959D0D197D42D01A6A0 /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */; };
+		B966BD0B6B7488A0E1B3D906 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */; };
+		BCF4BD3B873255D0BF5FAEFF /* SyncMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */; };
+		D51CB9CD5D1B66ACE714D914 /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */; };
+		D8C932578D3506549ED58372 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC7FB079F4294488830E3A6 /* MainTabView.swift */; };
+		E09CD052EDE4A584E2AD75BD /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */; };
+		EEABDD2767FAB4F50E0737EA /* BonjourSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */; };
+		F1C8B7667D11A3EC486E3A1A /* FilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB9B6ED0F551A3D46050ED /* FilterBar.swift */; };
+		F60E86DF6F289700A35127E7 /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF716B5714B9DCEB67F7A9C /* ClipboardHistoryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F12C2801BB2EBA3810DBD02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C3302DA1143818BDC65EEE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 993D538196C29C202D448947;
+			remoteInfo = CopyPastaiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1041A9A4B43F27A821396BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourSyncService.swift; sourceTree = "<group>"; };
+		1AC7FB079F4294488830E3A6 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMessage.swift; sourceTree = "<group>"; };
+		2BF716B5714B9DCEB67F7A9C /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
+		33C929ABDB5F1CF04FCC4976 /* CopyPastaiOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CopyPastaiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		4D76B6C0B6A4842CD8189548 /* CopyPastaMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPastaMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardItemRow.swift; sourceTree = "<group>"; };
+		6799C6CFA64D7572917A36DE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		6A01B10F0160BA385053340B /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		85C7299280C9510DDC33AF47 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		88C95496C467D59B3C57A0B4 /* ClipboardHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryViewModel.swift; sourceTree = "<group>"; };
+		9281636E3CD571788DDAA062 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
+		A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardItem.swift; sourceTree = "<group>"; };
+		A315BF19A9FF8DDFCBAE681A /* iOSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSettingsView.swift; sourceTree = "<group>"; };
+		AE7270C5E736940379A84F0D /* MenuBarPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPopover.swift; sourceTree = "<group>"; };
+		B817333059331A6A58D51DE4 /* SyncStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusView.swift; sourceTree = "<group>"; };
+		C112A8712B2898769087257D /* CopyPastaMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPastaMacApp.swift; sourceTree = "<group>"; };
+		CD61771CF0707F8AC9A1C43F /* MacClipboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacClipboardMonitor.swift; sourceTree = "<group>"; };
+		CECB9B6ED0F551A3D46050ED /* FilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBar.swift; sourceTree = "<group>"; };
+		DB8EB362598A395EAFC17637 /* CopyPastaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPastaiOSApp.swift; sourceTree = "<group>"; };
+		ECDDC35A1EC357AD09E08752 /* CopyPastaShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CopyPastaShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0C5A2C1F58811ED773F2E882 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0D68E4FD84EFD27850A84AE2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EB362598A395EAFC17637 /* CopyPastaiOSApp.swift */,
+				362269963729C742763638E6 /* Views */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		1185532C963D0139FC72D3CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */,
+				CECB9B6ED0F551A3D46050ED /* FilterBar.swift */,
+				B817333059331A6A58D51DE4 /* SyncStatusView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1B3607633A06148DAE0721D8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B7637B1298F8ECAF3BC1A77E /* Models */,
+				0C5A2C1F58811ED773F2E882 /* Services */,
+				9068EA6EC68E18239F7C5AC0 /* ViewModels */,
+				1185532C963D0139FC72D3CE /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1C4B21D4C2FC62DCD852EBAC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CD61771CF0707F8AC9A1C43F /* MacClipboardMonitor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		362269963729C742763638E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BF716B5714B9DCEB67F7A9C /* ClipboardHistoryView.swift */,
+				9281636E3CD571788DDAA062 /* DevicesView.swift */,
+				A315BF19A9FF8DDFCBAE681A /* iOSSettingsView.swift */,
+				6A01B10F0160BA385053340B /* ItemDetailView.swift */,
+				1AC7FB079F4294488830E3A6 /* MainTabView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3E80DC2AD485F08083C8971F /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				C112A8712B2898769087257D /* CopyPastaMacApp.swift */,
+				1C4B21D4C2FC62DCD852EBAC /* Services */,
+				63A19BF9E3F097DDC9716932 /* Views */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		63A19BF9E3F097DDC9716932 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE7270C5E736940379A84F0D /* MenuBarPopover.swift */,
+				6799C6CFA64D7572917A36DE /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8FD478CD61F38837A4C8F72C = {
+			isa = PBXGroup;
+			children = (
+				0D68E4FD84EFD27850A84AE2 /* iOS */,
+				3E80DC2AD485F08083C8971F /* macOS */,
+				1B3607633A06148DAE0721D8 /* Shared */,
+				B18024315DAFD4C94B18BA14 /* ShareExtension */,
+				EB95116CE6E715439F204191 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9068EA6EC68E18239F7C5AC0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				88C95496C467D59B3C57A0B4 /* ClipboardHistoryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B18024315DAFD4C94B18BA14 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				1041A9A4B43F27A821396BB9 /* Info.plist */,
+				85C7299280C9510DDC33AF47 /* ShareViewController.swift */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		B7637B1298F8ECAF3BC1A77E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */,
+				446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */,
+				1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB95116CE6E715439F204191 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C929ABDB5F1CF04FCC4976 /* CopyPastaiOS.app */,
+				4D76B6C0B6A4842CD8189548 /* CopyPastaMac.app */,
+				ECDDC35A1EC357AD09E08752 /* CopyPastaShareExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		993D538196C29C202D448947 /* CopyPastaiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59F77FF9B762AD3793CD7382 /* Build configuration list for PBXNativeTarget "CopyPastaiOS" */;
+			buildPhases = (
+				045F8B7280335B9AF452FDD5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CopyPastaiOS;
+			packageProductDependencies = (
+			);
+			productName = CopyPastaiOS;
+			productReference = 33C929ABDB5F1CF04FCC4976 /* CopyPastaiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D38EEED5EA00656BA69D152F /* CopyPastaShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECE6541E0959440B5B6E20F4 /* Build configuration list for PBXNativeTarget "CopyPastaShareExtension" */;
+			buildPhases = (
+				22AA5C2E179072521ED2085E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEE1EE9373081988D709B06F /* PBXTargetDependency */,
+			);
+			name = CopyPastaShareExtension;
+			packageProductDependencies = (
+			);
+			productName = CopyPastaShareExtension;
+			productReference = ECDDC35A1EC357AD09E08752 /* CopyPastaShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DA4A43C71FE53ED8F006BAFD /* CopyPastaMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33665CAFB65423F2F94E9F7E /* Build configuration list for PBXNativeTarget "CopyPastaMac" */;
+			buildPhases = (
+				64EFC090299A7D2AD156747E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CopyPastaMac;
+			packageProductDependencies = (
+			);
+			productName = CopyPastaMac;
+			productReference = 4D76B6C0B6A4842CD8189548 /* CopyPastaMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0C3302DA1143818BDC65EEE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = A52D846CBED4B4B516B1EDDC /* Build configuration list for PBXProject "CopyPasta" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8FD478CD61F38837A4C8F72C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EB95116CE6E715439F204191 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA4A43C71FE53ED8F006BAFD /* CopyPastaMac */,
+				D38EEED5EA00656BA69D152F /* CopyPastaShareExtension */,
+				993D538196C29C202D448947 /* CopyPastaiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		045F8B7280335B9AF452FDD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95613119014C91FFBB35E0F5 /* BonjourSyncService.swift in Sources */,
+				F60E86DF6F289700A35127E7 /* ClipboardHistoryView.swift in Sources */,
+				36C26E280B334BE644A8244E /* ClipboardHistoryViewModel.swift in Sources */,
+				B68D0959D0D197D42D01A6A0 /* ClipboardItem.swift in Sources */,
+				1F7CBDE1857639FE782CEC01 /* ClipboardItemRow.swift in Sources */,
+				946D44CDB5B73DA578574CEE /* CopyPastaiOSApp.swift in Sources */,
+				15FDD1526F267A591C30F218 /* DeviceInfo.swift in Sources */,
+				11EB4089906469C0180A64EF /* DevicesView.swift in Sources */,
+				25E8287A3B37F120FEABCE45 /* FilterBar.swift in Sources */,
+				950A8C81725C2B10B69565B8 /* ItemDetailView.swift in Sources */,
+				D8C932578D3506549ED58372 /* MainTabView.swift in Sources */,
+				47DB3C38EA4C31274F8F754D /* SyncMessage.swift in Sources */,
+				38894BBE932AA313B6C3E11F /* SyncStatusView.swift in Sources */,
+				B2B28E4D87448D96D268A79F /* iOSSettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22AA5C2E179072521ED2085E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D51CB9CD5D1B66ACE714D914 /* ClipboardItem.swift in Sources */,
+				B966BD0B6B7488A0E1B3D906 /* DeviceInfo.swift in Sources */,
+				61D9E973F1DA44BF73D95BCD /* ShareViewController.swift in Sources */,
+				84F0560C4E1CED941F1C854F /* SyncMessage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64EFC090299A7D2AD156747E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEABDD2767FAB4F50E0737EA /* BonjourSyncService.swift in Sources */,
+				9BEBDD3BAEDB7AF318C734F9 /* ClipboardHistoryViewModel.swift in Sources */,
+				E09CD052EDE4A584E2AD75BD /* ClipboardItem.swift in Sources */,
+				6962DCB0DE2B57DEDFB34EA0 /* ClipboardItemRow.swift in Sources */,
+				2D520739CDF2DCDB2ABC8F4F /* CopyPastaMacApp.swift in Sources */,
+				9FB6CF6D8CFAAD5B709A8C34 /* DeviceInfo.swift in Sources */,
+				F1C8B7667D11A3EC486E3A1A /* FilterBar.swift in Sources */,
+				7AE45FE8F7A7729AA560825C /* MacClipboardMonitor.swift in Sources */,
+				4410BBE58643FEE4DEDEB7B3 /* MenuBarPopover.swift in Sources */,
+				6CD761BB7CF5870B2BC4A381 /* SettingsView.swift in Sources */,
+				BCF4BD3B873255D0BF5FAEFF /* SyncMessage.swift in Sources */,
+				4F8B135D819F3F4A012B23EA /* SyncStatusView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEE1EE9373081988D709B06F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 993D538196C29C202D448947 /* CopyPastaiOS */;
+			targetProxy = 6F12C2801BB2EBA3810DBD02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A938C46722210FDA9F801D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.copypasta.ios.share;
+				PRODUCT_NAME = CopyPastaShare;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3578185443A20937F5E847EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CopyPastaMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.copypasta.mac;
+				PRODUCT_NAME = CopyPasta;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		395941B98AFE8EAEF987D2A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CopyPastaiOS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_CFBundleDisplayName = CopyPasta;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.copypasta.ios;
+				PRODUCT_NAME = CopyPasta;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66F3117CE00D4BB4E2484951 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		672AA087013988EFCD018679 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		7CC5200E122C3511C3C22532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CopyPastaiOS.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_CFBundleDisplayName = CopyPasta;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.copypasta.ios;
+				PRODUCT_NAME = CopyPasta;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8CBEE8AAE5E6446585A87D78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.copypasta.ios.share;
+				PRODUCT_NAME = CopyPastaShare;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6BECBE15DA42A615A6DBB0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CopyPastaMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.copypasta.mac;
+				PRODUCT_NAME = CopyPasta;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33665CAFB65423F2F94E9F7E /* Build configuration list for PBXNativeTarget "CopyPastaMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3578185443A20937F5E847EA /* Debug */,
+				E6BECBE15DA42A615A6DBB0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		59F77FF9B762AD3793CD7382 /* Build configuration list for PBXNativeTarget "CopyPastaiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				395941B98AFE8EAEF987D2A3 /* Debug */,
+				7CC5200E122C3511C3C22532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A52D846CBED4B4B516B1EDDC /* Build configuration list for PBXProject "CopyPasta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				672AA087013988EFCD018679 /* Debug */,
+				66F3117CE00D4BB4E2484951 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ECE6541E0959440B5B6E20F4 /* Build configuration list for PBXNativeTarget "CopyPastaShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CBEE8AAE5E6446585A87D78 /* Debug */,
+				0A938C46722210FDA9F801D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0C3302DA1143818BDC65EEE6 /* Project object */;
+}
