@@ -6,6 +6,6 @@ enum RelayConfig {
            let url = URL(string: custom) {
             return url
         }
-        return URL(string: "wss://copypasta-relay.fly.dev")!
+        return URL(string: "wss://copypasta-relay.onrender.com")!
     }
 }
