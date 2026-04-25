@@ -4,7 +4,7 @@ import UIKit
 
 struct ClipboardHistoryView: View {
     @Bindable var viewModel: ClipboardHistoryViewModel
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
     @Binding var showingCopiedToast: Bool
     @Binding var toastMessage: String
 
@@ -15,7 +15,6 @@ struct ClipboardHistoryView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Filter bar
                 FilterBar(
                     selectedFilter: $viewModel.selectedFilter,
                     searchText: $viewModel.searchText
@@ -23,12 +22,10 @@ struct ClipboardHistoryView: View {
                 .padding(.horizontal)
                 .padding(.top, 8)
 
-                // Sync status
-                SyncStatusView(bonjourService: bonjourService)
+                SyncStatusView(syncCoordinator: syncCoordinator)
 
                 Divider()
 
-                // Items list
                 if viewModel.filteredItems.isEmpty {
                     emptyState
                 } else {
@@ -66,12 +63,12 @@ struct ClipboardHistoryView: View {
             .sheet(item: $showingDetail) { item in
                 ItemDetailView(
                     item: item,
-                    bonjourService: bonjourService,
+                    syncCoordinator: syncCoordinator,
                     onCopy: { copyToClipboard(item.content) }
                 )
             }
             .sheet(item: $showingSendSheet) { item in
-                SendToDeviceSheet(item: item, bonjourService: bonjourService)
+                SendToDeviceSheet(item: item, syncCoordinator: syncCoordinator)
             }
         }
     }
@@ -111,7 +108,7 @@ struct ClipboardHistoryView: View {
                     }
                     .tint(.orange)
 
-                    if !bonjourService.discoveredPeers.isEmpty {
+                    if !syncCoordinator.allPeers.isEmpty {
                         Button {
                             showingSendSheet = item
                         } label: {
@@ -156,7 +153,7 @@ struct ClipboardHistoryView: View {
            let content = UIPasteboard.general.string {
             if let item = viewModel.addItem(content: content) {
                 let message = SyncMessage(from: item)
-                bonjourService.broadcast(message)
+                syncCoordinator.broadcast(message)
             }
         }
     }
@@ -166,14 +163,13 @@ struct ClipboardHistoryView: View {
 
 struct SendToDeviceSheet: View {
     let item: ClipboardItem
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
     @Environment(\.dismiss) private var dismiss
     @State private var sent = false
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 24) {
-                // Preview of what we're sending
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Sending:")
                         .font(.caption)
@@ -189,8 +185,7 @@ struct SendToDeviceSheet: View {
                 }
                 .padding(.horizontal)
 
-                // Device list
-                if bonjourService.discoveredPeers.isEmpty {
+                if syncCoordinator.allPeers.isEmpty {
                     VStack(spacing: 12) {
                         ProgressView()
                         Text("Looking for devices...")
@@ -200,24 +195,29 @@ struct SendToDeviceSheet: View {
                     .padding(.top, 20)
                 } else {
                     VStack(spacing: 12) {
-                        ForEach(bonjourService.discoveredPeers) { peer in
+                        ForEach(syncCoordinator.allPeers) { peer in
                             Button(action: {
                                 let message = SyncMessage(from: item)
-                                bonjourService.broadcast(message)
+                                syncCoordinator.broadcast(message)
                                 sent = true
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                     dismiss()
                                 }
                             }) {
                                 HStack(spacing: 12) {
-                                    Image(systemName: peerIcon(for: peer.name))
+                                    Image(systemName: peerIcon(for: peer))
                                         .font(.title2)
                                         .frame(width: 44, height: 44)
-                                        .background(.blue.opacity(0.1))
+                                        .background(peer.connectionType == .lan ? .green.opacity(0.1) : .blue.opacity(0.1))
                                         .clipShape(Circle())
 
-                                    Text(peer.name)
-                                        .font(.headline)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(peer.name)
+                                            .font(.headline)
+                                        Text(peer.connectionType == .lan ? "LAN" : "Relay")
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
 
                                     Spacer()
 
@@ -254,10 +254,11 @@ struct SendToDeviceSheet: View {
         .presentationDetents([.medium])
     }
 
-    private func peerIcon(for name: String) -> String {
-        let lower = name.lowercased()
+    private func peerIcon(for peer: SyncCoordinator.PeerInfo) -> String {
+        let lower = peer.name.lowercased()
         if lower.contains("mac") || lower.contains("book") || lower.contains("imac") { return "laptopcomputer" }
         if lower.contains("ipad") { return "ipad" }
+        if lower.contains("iphone") { return "iphone" }
         return "desktopcomputer"
     }
 }

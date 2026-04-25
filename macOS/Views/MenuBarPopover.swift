@@ -4,7 +4,7 @@ import SwiftData
 struct MenuBarPopover: View {
     @Bindable var viewModel: ClipboardHistoryViewModel
     let clipboardMonitor: MacClipboardMonitor
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
 
     @Environment(\.modelContext) private var modelContext
     @State private var hasSetup = false
@@ -12,12 +12,9 @@ struct MenuBarPopover: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
             header
-
             Divider()
 
-            // Filter & Search
             FilterBar(
                 selectedFilter: $viewModel.selectedFilter,
                 searchText: $viewModel.searchText
@@ -27,7 +24,6 @@ struct MenuBarPopover: View {
 
             Divider()
 
-            // Clipboard items list
             if viewModel.filteredItems.isEmpty {
                 emptyState
             } else {
@@ -36,9 +32,7 @@ struct MenuBarPopover: View {
 
             Divider()
 
-            // Sync status + bottom bar
-            SyncStatusView(bonjourService: bonjourService)
-
+            SyncStatusView(syncCoordinator: syncCoordinator)
             bottomBar
         }
         .frame(width: 400, height: 540)
@@ -72,20 +66,18 @@ struct MenuBarPopover: View {
 
             Spacer()
 
-            // Device indicator
-            if !bonjourService.discoveredPeers.isEmpty {
-                ForEach(bonjourService.discoveredPeers) { peer in
-                    HStack(spacing: 4) {
-                        Image(systemName: peerIcon(for: peer.name))
-                            .font(.caption)
-                        Text(peer.name)
-                            .font(.caption)
-                    }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 3)
-                    .background(.green.opacity(0.1), in: Capsule())
-                    .foregroundStyle(.green)
+            // Show connected peers
+            ForEach(syncCoordinator.allPeers) { peer in
+                HStack(spacing: 4) {
+                    Image(systemName: peerIcon(for: peer))
+                        .font(.caption)
+                    Text(peer.name)
+                        .font(.caption)
                 }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(peer.connectionType == .lan ? .green.opacity(0.1) : .blue.opacity(0.1), in: Capsule())
+                .foregroundStyle(peer.connectionType == .lan ? .green : .blue)
             }
 
             Menu {
@@ -139,15 +131,11 @@ struct MenuBarPopover: View {
                             viewModel.togglePin(item)
                         }
 
-                        if !bonjourService.discoveredPeers.isEmpty {
+                        if !syncCoordinator.allPeers.isEmpty {
                             Divider()
-                            Menu("Send to...") {
-                                ForEach(bonjourService.discoveredPeers) { peer in
-                                    Button(peer.name) {
-                                        let message = SyncMessage(from: item)
-                                        bonjourService.broadcast(message)
-                                    }
-                                }
+                            Button("Send to All Devices") {
+                                let message = SyncMessage(from: item)
+                                syncCoordinator.broadcast(message)
                             }
                         }
 
@@ -191,8 +179,8 @@ struct MenuBarPopover: View {
 
             Spacer()
 
-            if bonjourService.discoveredPeers.isEmpty {
-                Label("No devices nearby", systemImage: "wifi.slash")
+            if syncCoordinator.allPeers.isEmpty {
+                Label("No devices", systemImage: "wifi.slash")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -206,23 +194,19 @@ struct MenuBarPopover: View {
     private func setupServices() {
         viewModel.configure(modelContext: modelContext)
 
-        // Start clipboard monitoring
         clipboardMonitor.onNewClipboardContent = { content in
             if let item = viewModel.addItem(content: content) {
-                // Auto-broadcast to all nearby peers
                 let message = SyncMessage(from: item)
-                bonjourService.broadcast(message)
+                syncCoordinator.broadcast(message)
             }
         }
         clipboardMonitor.startMonitoring()
 
-        // Start Bonjour sync — receive items from peers
-        bonjourService.onItemReceived = { message in
+        syncCoordinator.onItemReceived = { message in
             viewModel.addSyncedItem(message)
-            // Auto-copy the latest received item to clipboard
             clipboardMonitor.copyToClipboard(message.content)
         }
-        bonjourService.start()
+        syncCoordinator.start()
     }
 
     private func flashCopied() {
@@ -232,10 +216,10 @@ struct MenuBarPopover: View {
         }
     }
 
-    private func peerIcon(for name: String) -> String {
-        let lower = name.lowercased()
+    private func peerIcon(for peer: SyncCoordinator.PeerInfo) -> String {
+        let lower = peer.name.lowercased()
         if lower.contains("iphone") || lower.contains("phone") { return "iphone" }
         if lower.contains("ipad") { return "ipad" }
-        return "desktopcomputer"
+        return "laptopcomputer"
     }
 }

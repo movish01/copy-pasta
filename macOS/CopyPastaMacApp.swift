@@ -5,14 +5,14 @@ import SwiftData
 struct CopyPastaMacApp: App {
     @State private var viewModel = ClipboardHistoryViewModel()
     @State private var clipboardMonitor = MacClipboardMonitor()
-    @State private var bonjourService = BonjourSyncService()
+    @State private var syncCoordinator = SyncCoordinator()
 
     var body: some Scene {
         MenuBarExtra {
             MenuBarPopover(
                 viewModel: viewModel,
                 clipboardMonitor: clipboardMonitor,
-                bonjourService: bonjourService
+                syncCoordinator: syncCoordinator
             )
             .modelContainer(for: ClipboardItem.self)
         } label: {
@@ -21,7 +21,7 @@ struct CopyPastaMacApp: App {
         .menuBarExtraStyle(.window)
 
         Settings {
-            SettingsView(bonjourService: bonjourService)
+            SettingsView(syncCoordinator: syncCoordinator)
         }
     }
 }

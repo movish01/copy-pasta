@@ -27,6 +27,9 @@ Package.resolved
 .LSOverride
 ._*
 
+# Node.js
+relay-server/node_modules/
+
 # Misc
 *.swp
 *~

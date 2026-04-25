@@ -2,11 +2,10 @@ import SwiftUI
 
 struct ItemDetailView: View {
     let item: ClipboardItem
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
     let onCopy: () -> Void
 
     @Environment(\.dismiss) private var dismiss
-    @State private var showingSendSheet = false
 
     var body: some View {
         NavigationStack {
@@ -67,10 +66,10 @@ struct ItemDetailView: View {
                         }
                         .buttonStyle(.borderedProminent)
 
-                        if !bonjourService.discoveredPeers.isEmpty {
+                        if !syncCoordinator.allPeers.isEmpty {
                             Button(action: {
                                 let message = SyncMessage(from: item)
-                                bonjourService.broadcast(message)
+                                syncCoordinator.broadcast(message)
                                 dismiss()
                             }) {
                                 Label("Send", systemImage: "paperplane.fill")

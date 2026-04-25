@@ -1,14 +1,15 @@
 import SwiftUI
 
 struct SettingsView: View {
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
 
     @AppStorage("launchAtLogin") private var launchAtLogin = false
-    @AppStorage("enableBonjour") private var enableBonjour = true
     @AppStorage("autoSendToDevices") private var autoSendToDevices = true
     @AppStorage("autoCopyReceived") private var autoCopyReceived = true
     @AppStorage("maxHistoryItems") private var maxHistoryItems = 500
     @AppStorage("monitorInterval") private var monitorInterval = 0.5
+
+    @State private var showingRelaySetup = false
 
     var body: some View {
         TabView {
@@ -21,7 +22,7 @@ struct SettingsView: View {
             aboutView
                 .tabItem { Label("About", systemImage: "info.circle") }
         }
-        .frame(width: 450, height: 320)
+        .frame(width: 480, height: 380)
     }
 
     // MARK: - General
@@ -37,7 +38,6 @@ struct SettingsView: View {
             }
 
             Toggle("Auto-send new copies to nearby devices", isOn: $autoSendToDevices)
-
             Toggle("Auto-copy items received from other devices", isOn: $autoCopyReceived)
         }
         .padding()
@@ -48,34 +48,24 @@ struct SettingsView: View {
     private var networkSettings: some View {
         Form {
             Section("Local Network (Bonjour)") {
-                Toggle("Enable LAN Discovery", isOn: $enableBonjour)
-                    .onChange(of: enableBonjour) { _, newValue in
-                        if newValue { bonjourService.start() } else { bonjourService.stop() }
+                LabeledContent("Status") {
+                    HStack(spacing: 4) {
+                        Circle()
+                            .fill(syncCoordinator.bonjour.connectionStatus == .connected ? .green : .orange)
+                            .frame(width: 8, height: 8)
+                        Text(syncCoordinator.bonjour.connectionStatus.rawValue)
                     }
+                }
 
-                if bonjourService.isRunning {
-                    LabeledContent("Status") {
-                        HStack(spacing: 4) {
-                            Circle()
-                                .fill(bonjourService.connectionStatus == .connected ? .green : .orange)
-                                .frame(width: 8, height: 8)
-                            Text(bonjourService.connectionStatus.rawValue)
-                        }
-                    }
-
-                    LabeledContent("Nearby Devices") {
-                        if bonjourService.discoveredPeers.isEmpty {
-                            Text("Searching...")
-                                .foregroundStyle(.secondary)
-                        } else {
-                            VStack(alignment: .trailing, spacing: 4) {
-                                ForEach(bonjourService.discoveredPeers) { peer in
-                                    HStack(spacing: 4) {
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .foregroundStyle(.green)
-                                            .font(.caption)
-                                        Text(peer.name)
-                                    }
+                if !syncCoordinator.bonjour.discoveredPeers.isEmpty {
+                    LabeledContent("LAN Peers") {
+                        VStack(alignment: .trailing, spacing: 4) {
+                            ForEach(syncCoordinator.bonjour.discoveredPeers) { peer in
+                                HStack(spacing: 4) {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundStyle(.green)
+                                        .font(.caption)
+                                    Text(peer.name)
                                 }
                             }
                         }
@@ -83,13 +73,63 @@ struct SettingsView: View {
                 }
             }
 
+            Section("Internet Relay") {
+                if syncCoordinator.relay.isConnected {
+                    LabeledContent("Status") {
+                        HStack(spacing: 4) {
+                            Circle().fill(.green).frame(width: 8, height: 8)
+                            Text("Connected")
+                        }
+                    }
+
+                    if let roomId = syncCoordinator.relay.roomId {
+                        LabeledContent("Room") {
+                            Text(roomId)
+                                .font(.caption.monospaced())
+                        }
+                    }
+
+                    if !syncCoordinator.relay.roomMembers.isEmpty {
+                        LabeledContent("Relay Peers") {
+                            VStack(alignment: .trailing, spacing: 4) {
+                                ForEach(syncCoordinator.relay.roomMembers) { member in
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "antenna.radiowaves.left.and.right")
+                                            .foregroundStyle(.blue)
+                                            .font(.caption)
+                                        Text(member.deviceName)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    Button("Disconnect Relay") {
+                        syncCoordinator.leaveRelayRoom()
+                    }
+                } else {
+                    LabeledContent("Status") {
+                        Text(syncCoordinator.relay.connectionStatus.rawValue)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Button("Set Up Relay Sync...") {
+                        showingRelaySetup = true
+                    }
+                }
+            }
+
             Section {
-                Text("CopyPasta uses Bonjour to discover devices on the same Wi-Fi network. No internet or accounts needed — everything stays local.")
+                Text("LAN sync works on the same Wi-Fi. Relay sync works from anywhere over the internet with E2E encryption.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
         .padding()
+        .sheet(isPresented: $showingRelaySetup) {
+            RelaySetupView(syncCoordinator: syncCoordinator)
+                .frame(width: 400, height: 400)
+        }
     }
 
     // MARK: - About
@@ -104,7 +144,7 @@ struct SettingsView: View {
                 .font(.title)
                 .fontWeight(.bold)
 
-            Text("Clipboard History & Local Sync")
+            Text("Clipboard History & Sync")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
@@ -112,7 +152,7 @@ struct SettingsView: View {
                 .font(.caption)
                 .foregroundStyle(.tertiary)
 
-            Text("Share your clipboard between iPhone and Mac over Wi-Fi.\nNo accounts, no cloud — just local network magic.")
+            Text("Share your clipboard between iPhone and Mac.\nWorks over Wi-Fi (Bonjour) or the internet (Relay).\nNo accounts needed. E2E encrypted.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)

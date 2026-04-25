@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101D2349DB96075774E61546 /* RelaySyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C68598820E94C012E37E992 /* RelaySyncService.swift */; };
 		11EB4089906469C0180A64EF /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281636E3CD571788DDAA062 /* DevicesView.swift */; };
 		15FDD1526F267A591C30F218 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */; };
 		1F7CBDE1857639FE782CEC01 /* ClipboardItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */; };
@@ -18,13 +19,20 @@
 		47DB3C38EA4C31274F8F754D /* SyncMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */; };
 		4F8B135D819F3F4A012B23EA /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B817333059331A6A58D51DE4 /* SyncStatusView.swift */; };
 		61D9E973F1DA44BF73D95BCD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7299280C9510DDC33AF47 /* ShareViewController.swift */; };
+		642975083098D8C8DA29E72B /* RelaySetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DDF9A3526AABC2F71E14A4 /* RelaySetupView.swift */; };
 		6962DCB0DE2B57DEDFB34EA0 /* ClipboardItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */; };
+		6AE3F08C07ED11DE2A92CBBF /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED915B86F75745BA892366 /* SyncCoordinator.swift */; };
+		6AF80E223098B583426BF564 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF35B7B9DC60BA19B870E22A /* KeychainHelper.swift */; };
+		6B77E5D0FD1D7091AB91E555 /* RelayCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955765D04676CB66392B1AA9 /* RelayCrypto.swift */; };
 		6CD761BB7CF5870B2BC4A381 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6799C6CFA64D7572917A36DE /* SettingsView.swift */; };
 		7AE45FE8F7A7729AA560825C /* MacClipboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD61771CF0707F8AC9A1C43F /* MacClipboardMonitor.swift */; };
+		7BB60F71C8378CA19557EC9A /* RelayCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955765D04676CB66392B1AA9 /* RelayCrypto.swift */; };
 		84F0560C4E1CED941F1C854F /* SyncMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */; };
+		8D4C39E7C05795B76D94FC27 /* RelaySyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C68598820E94C012E37E992 /* RelaySyncService.swift */; };
 		946D44CDB5B73DA578574CEE /* CopyPastaiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EB362598A395EAFC17637 /* CopyPastaiOSApp.swift */; };
 		950A8C81725C2B10B69565B8 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01B10F0160BA385053340B /* ItemDetailView.swift */; };
 		95613119014C91FFBB35E0F5 /* BonjourSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */; };
+		9967FE5037652BD837781C4B /* RelaySetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DDF9A3526AABC2F71E14A4 /* RelaySetupView.swift */; };
 		9BEBDD3BAEDB7AF318C734F9 /* ClipboardHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C95496C467D59B3C57A0B4 /* ClipboardHistoryViewModel.swift */; };
 		9FB6CF6D8CFAAD5B709A8C34 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */; };
 		B2B28E4D87448D96D268A79F /* iOSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315BF19A9FF8DDFCBAE681A /* iOSSettingsView.swift */; };
@@ -33,10 +41,14 @@
 		BCF4BD3B873255D0BF5FAEFF /* SyncMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8A825DAD23E95B3581BF7 /* SyncMessage.swift */; };
 		D51CB9CD5D1B66ACE714D914 /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */; };
 		D8C932578D3506549ED58372 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC7FB079F4294488830E3A6 /* MainTabView.swift */; };
+		E0494BCB5CD5F73286F9F26E /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF35B7B9DC60BA19B870E22A /* KeychainHelper.swift */; };
 		E09CD052EDE4A584E2AD75BD /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */; };
+		EB01DDD336DFBDC8FF93138A /* RelayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FA49E0FCA9CD37C2B7840 /* RelayConfig.swift */; };
 		EEABDD2767FAB4F50E0737EA /* BonjourSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */; };
 		F1C8B7667D11A3EC486E3A1A /* FilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB9B6ED0F551A3D46050ED /* FilterBar.swift */; };
+		F262D11E60EED230F92B548D /* RelayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FA49E0FCA9CD37C2B7840 /* RelayConfig.swift */; };
 		F60E86DF6F289700A35127E7 /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF716B5714B9DCEB67F7A9C /* ClipboardHistoryView.swift */; };
+		FD83BA6F08DB9EB6734DAB38 /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED915B86F75745BA892366 /* SyncCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046FA49E0FCA9CD37C2B7840 /* RelayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayConfig.swift; sourceTree = "<group>"; };
 		1041A9A4B43F27A821396BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourSyncService.swift; sourceTree = "<group>"; };
 		1AC7FB079F4294488830E3A6 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -57,6 +70,7 @@
 		2BF716B5714B9DCEB67F7A9C /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
 		33C929ABDB5F1CF04FCC4976 /* CopyPastaiOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CopyPastaiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446EB8517DA5CD6E47E1FD5B /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		4C68598820E94C012E37E992 /* RelaySyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySyncService.swift; sourceTree = "<group>"; };
 		4D76B6C0B6A4842CD8189548 /* CopyPastaMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPastaMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardItemRow.swift; sourceTree = "<group>"; };
 		6799C6CFA64D7572917A36DE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -64,6 +78,8 @@
 		85C7299280C9510DDC33AF47 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		88C95496C467D59B3C57A0B4 /* ClipboardHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryViewModel.swift; sourceTree = "<group>"; };
 		9281636E3CD571788DDAA062 /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
+		94DDF9A3526AABC2F71E14A4 /* RelaySetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySetupView.swift; sourceTree = "<group>"; };
+		955765D04676CB66392B1AA9 /* RelayCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCrypto.swift; sourceTree = "<group>"; };
 		A0D8AB3C8EE78BF8D1893B7D /* ClipboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardItem.swift; sourceTree = "<group>"; };
 		A315BF19A9FF8DDFCBAE681A /* iOSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSettingsView.swift; sourceTree = "<group>"; };
 		AE7270C5E736940379A84F0D /* MenuBarPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPopover.swift; sourceTree = "<group>"; };
@@ -72,7 +88,9 @@
 		CD61771CF0707F8AC9A1C43F /* MacClipboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacClipboardMonitor.swift; sourceTree = "<group>"; };
 		CECB9B6ED0F551A3D46050ED /* FilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBar.swift; sourceTree = "<group>"; };
 		DB8EB362598A395EAFC17637 /* CopyPastaiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPastaiOSApp.swift; sourceTree = "<group>"; };
+		DF35B7B9DC60BA19B870E22A /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		ECDDC35A1EC357AD09E08752 /* CopyPastaShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CopyPastaShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5ED915B86F75745BA892366 /* SyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -80,6 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				124BE6F2F7C9DE6A87376342 /* BonjourSyncService.swift */,
+				DF35B7B9DC60BA19B870E22A /* KeychainHelper.swift */,
+				046FA49E0FCA9CD37C2B7840 /* RelayConfig.swift */,
+				955765D04676CB66392B1AA9 /* RelayCrypto.swift */,
+				4C68598820E94C012E37E992 /* RelaySyncService.swift */,
+				F5ED915B86F75745BA892366 /* SyncCoordinator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -98,6 +121,7 @@
 			children = (
 				54F5F32195C8D8F8E42217F6 /* ClipboardItemRow.swift */,
 				CECB9B6ED0F551A3D46050ED /* FilterBar.swift */,
+				94DDF9A3526AABC2F71E14A4 /* RelaySetupView.swift */,
 				B817333059331A6A58D51DE4 /* SyncStatusView.swift */,
 			);
 			path = Views;
@@ -303,7 +327,13 @@
 				11EB4089906469C0180A64EF /* DevicesView.swift in Sources */,
 				25E8287A3B37F120FEABCE45 /* FilterBar.swift in Sources */,
 				950A8C81725C2B10B69565B8 /* ItemDetailView.swift in Sources */,
+				E0494BCB5CD5F73286F9F26E /* KeychainHelper.swift in Sources */,
 				D8C932578D3506549ED58372 /* MainTabView.swift in Sources */,
+				F262D11E60EED230F92B548D /* RelayConfig.swift in Sources */,
+				6B77E5D0FD1D7091AB91E555 /* RelayCrypto.swift in Sources */,
+				642975083098D8C8DA29E72B /* RelaySetupView.swift in Sources */,
+				101D2349DB96075774E61546 /* RelaySyncService.swift in Sources */,
+				FD83BA6F08DB9EB6734DAB38 /* SyncCoordinator.swift in Sources */,
 				47DB3C38EA4C31274F8F754D /* SyncMessage.swift in Sources */,
 				38894BBE932AA313B6C3E11F /* SyncStatusView.swift in Sources */,
 				B2B28E4D87448D96D268A79F /* iOSSettingsView.swift in Sources */,
@@ -332,9 +362,15 @@
 				2D520739CDF2DCDB2ABC8F4F /* CopyPastaMacApp.swift in Sources */,
 				9FB6CF6D8CFAAD5B709A8C34 /* DeviceInfo.swift in Sources */,
 				F1C8B7667D11A3EC486E3A1A /* FilterBar.swift in Sources */,
+				6AF80E223098B583426BF564 /* KeychainHelper.swift in Sources */,
 				7AE45FE8F7A7729AA560825C /* MacClipboardMonitor.swift in Sources */,
 				4410BBE58643FEE4DEDEB7B3 /* MenuBarPopover.swift in Sources */,
+				EB01DDD336DFBDC8FF93138A /* RelayConfig.swift in Sources */,
+				7BB60F71C8378CA19557EC9A /* RelayCrypto.swift in Sources */,
+				9967FE5037652BD837781C4B /* RelaySetupView.swift in Sources */,
+				8D4C39E7C05795B76D94FC27 /* RelaySyncService.swift in Sources */,
 				6CD761BB7CF5870B2BC4A381 /* SettingsView.swift in Sources */,
+				6AE3F08C07ED11DE2A92CBBF /* SyncCoordinator.swift in Sources */,
 				BCF4BD3B873255D0BF5FAEFF /* SyncMessage.swift in Sources */,
 				4F8B135D819F3F4A012B23EA /* SyncStatusView.swift in Sources */,
 			);

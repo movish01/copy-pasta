@@ -4,7 +4,7 @@ import UIKit
 
 struct MainTabView: View {
     @Bindable var viewModel: ClipboardHistoryViewModel
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.scenePhase) private var scenePhase
@@ -16,7 +16,7 @@ struct MainTabView: View {
         TabView {
             ClipboardHistoryView(
                 viewModel: viewModel,
-                bonjourService: bonjourService,
+                syncCoordinator: syncCoordinator,
                 showingCopiedToast: $showingCopiedToast,
                 toastMessage: $toastMessage
             )
@@ -24,12 +24,12 @@ struct MainTabView: View {
                 Label("Clipboard", systemImage: "doc.on.clipboard")
             }
 
-            DevicesView(bonjourService: bonjourService)
+            DevicesView(syncCoordinator: syncCoordinator)
                 .tabItem {
                     Label("Devices", systemImage: "wifi")
                 }
 
-            iOSSettingsView(bonjourService: bonjourService)
+            iOSSettingsView(syncCoordinator: syncCoordinator)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
@@ -57,16 +57,13 @@ struct MainTabView: View {
     private func setupServices() {
         viewModel.configure(modelContext: modelContext)
 
-        // Start Bonjour sync
-        bonjourService.onItemReceived = { message in
+        syncCoordinator.onItemReceived = { message in
             viewModel.addSyncedItem(message)
-            // Auto-copy received items to clipboard
             UIPasteboard.general.string = message.content
             showToast("Received from \(message.sourceDevice)")
         }
-        bonjourService.start()
+        syncCoordinator.start()
 
-        // Check clipboard on first launch
         checkClipboardOnForeground()
     }
 
@@ -75,7 +72,7 @@ struct MainTabView: View {
            let content = UIPasteboard.general.string {
             if let item = viewModel.addItem(content: content) {
                 let message = SyncMessage(from: item)
-                bonjourService.broadcast(message)
+                syncCoordinator.broadcast(message)
             }
         }
     }

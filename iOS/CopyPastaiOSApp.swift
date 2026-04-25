@@ -4,13 +4,13 @@ import SwiftData
 @main
 struct CopyPastaiOSApp: App {
     @State private var viewModel = ClipboardHistoryViewModel()
-    @State private var bonjourService = BonjourSyncService()
+    @State private var syncCoordinator = SyncCoordinator()
 
     var body: some Scene {
         WindowGroup {
             MainTabView(
                 viewModel: viewModel,
-                bonjourService: bonjourService
+                syncCoordinator: syncCoordinator
             )
             .modelContainer(for: ClipboardItem.self)
         }

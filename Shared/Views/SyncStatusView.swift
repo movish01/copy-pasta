@@ -1,25 +1,35 @@
 import SwiftUI
 
 struct SyncStatusView: View {
-    let bonjourService: BonjourSyncService
+    let syncCoordinator: SyncCoordinator
 
     var body: some View {
         HStack(spacing: 12) {
-            // LAN status indicator
+            // LAN status
             HStack(spacing: 4) {
                 Circle()
                     .fill(lanStatusColor)
                     .frame(width: 8, height: 8)
-                Text(bonjourService.connectionStatus.rawValue)
+                Text("LAN")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }
 
-            if !bonjourService.discoveredPeers.isEmpty {
+            // Relay status
+            HStack(spacing: 4) {
+                Circle()
+                    .fill(relayStatusColor)
+                    .frame(width: 8, height: 8)
+                Text("Relay")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+
+            if !syncCoordinator.allPeers.isEmpty {
                 HStack(spacing: 4) {
-                    Image(systemName: "wifi")
+                    Image(systemName: "person.2")
                         .font(.caption2)
-                    Text("\(bonjourService.discoveredPeers.count) nearby")
+                    Text("\(syncCoordinator.allPeers.count)")
                         .font(.caption2)
                 }
                 .foregroundStyle(.green)
@@ -32,10 +42,19 @@ struct SyncStatusView: View {
     }
 
     private var lanStatusColor: Color {
-        switch bonjourService.connectionStatus {
+        switch syncCoordinator.bonjour.connectionStatus {
         case .connected: return .green
         case .listening, .browsing: return .yellow
         case .disconnected: return .red
+        }
+    }
+
+    private var relayStatusColor: Color {
+        switch syncCoordinator.relay.connectionStatus {
+        case .connected: return .green
+        case .connecting: return .yellow
+        case .disconnected: return .gray
+        case .error: return .red
         }
     }
 }
