@@ -8,7 +8,6 @@ struct MenuBarPopover: View {
 
     @Environment(\.openSettings) private var openSettings
 
-    @Environment(\.modelContext) private var modelContext
     @State private var hasSetup = false
     @State private var showCopied = false
 
@@ -54,7 +53,7 @@ struct MenuBarPopover: View {
         .onAppear {
             guard !hasSetup else { return }
             hasSetup = true
-            setupServices()
+            viewModel.fetchItems()
         }
     }
 
@@ -189,26 +188,6 @@ struct MenuBarPopover: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
-    }
-
-    // MARK: - Setup
-
-    private func setupServices() {
-        viewModel.configure(modelContext: modelContext)
-
-        clipboardMonitor.onNewClipboardContent = { content in
-            if let item = viewModel.addItem(content: content) {
-                let message = SyncMessage(from: item)
-                syncCoordinator.broadcast(message)
-            }
-        }
-        clipboardMonitor.startMonitoring()
-
-        syncCoordinator.onItemReceived = { message in
-            viewModel.addSyncedItem(message)
-            clipboardMonitor.copyToClipboard(message.content)
-        }
-        syncCoordinator.start()
     }
 
     private func flashCopied() {

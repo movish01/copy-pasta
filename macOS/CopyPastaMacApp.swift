@@ -3,25 +3,23 @@ import SwiftData
 
 @main
 struct CopyPastaMacApp: App {
-    @State private var viewModel = ClipboardHistoryViewModel()
-    @State private var clipboardMonitor = MacClipboardMonitor()
-    @State private var syncCoordinator = SyncCoordinator()
+    @State private var appState = AppState()
 
     var body: some Scene {
         MenuBarExtra {
             MenuBarPopover(
-                viewModel: viewModel,
-                clipboardMonitor: clipboardMonitor,
-                syncCoordinator: syncCoordinator
+                viewModel: appState.viewModel,
+                clipboardMonitor: appState.clipboardMonitor,
+                syncCoordinator: appState.syncCoordinator
             )
-            .modelContainer(for: ClipboardItem.self)
+            .modelContainer(appState.modelContainer)
         } label: {
             Image(systemName: "doc.on.clipboard")
         }
         .menuBarExtraStyle(.window)
 
         Settings {
-            SettingsView(syncCoordinator: syncCoordinator)
+            SettingsView(syncCoordinator: appState.syncCoordinator)
         }
     }
 }
