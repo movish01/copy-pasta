@@ -6,6 +6,8 @@ struct MenuBarPopover: View {
     let clipboardMonitor: MacClipboardMonitor
     let syncCoordinator: SyncCoordinator
 
+    @Environment(\.openSettings) private var openSettings
+
     @Environment(\.modelContext) private var modelContext
     @State private var hasSetup = false
     @State private var showCopied = false
@@ -86,7 +88,7 @@ struct MenuBarPopover: View {
                 }
                 Divider()
                 Button("Settings...") {
-                    NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+                    openSettings()
                 }
                 Divider()
                 Button("Quit CopyPasta") {

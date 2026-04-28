@@ -25,7 +25,7 @@ struct RelaySetupView: View {
                 VStack(spacing: 8) {
                     Image(systemName: "antenna.radiowaves.left.and.right")
                         .font(.system(size: 40))
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(.tint)
 
                     Text("Relay Sync")
                         .font(.title2)
@@ -91,7 +91,9 @@ struct RelaySetupView: View {
                 .padding(.bottom, 20)
             }
             .navigationTitle("Relay Setup")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }

@@ -11,6 +11,8 @@ struct MainTabView: View {
     @State private var hasSetup = false
     @State private var showingCopiedToast = false
     @State private var toastMessage = "Copied!"
+    @State private var clipboardTimer: Timer?
+    @State private var lastChangeCount = 0
 
     var body: some View {
         TabView {
@@ -50,6 +52,9 @@ struct MainTabView: View {
             if newPhase == .active {
                 checkClipboardOnForeground()
                 viewModel.fetchItems()
+                startClipboardPolling()
+            } else {
+                stopClipboardPolling()
             }
         }
     }
@@ -65,9 +70,32 @@ struct MainTabView: View {
         syncCoordinator.start()
 
         checkClipboardOnForeground()
+        startClipboardPolling()
     }
 
     private func checkClipboardOnForeground() {
+        lastChangeCount = UIPasteboard.general.changeCount
+        captureClipboardIfNew()
+    }
+
+    private func startClipboardPolling() {
+        stopClipboardPolling()
+        lastChangeCount = UIPasteboard.general.changeCount
+        clipboardTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            let currentCount = UIPasteboard.general.changeCount
+            if currentCount != lastChangeCount {
+                lastChangeCount = currentCount
+                captureClipboardIfNew()
+            }
+        }
+    }
+
+    private func stopClipboardPolling() {
+        clipboardTimer?.invalidate()
+        clipboardTimer = nil
+    }
+
+    private func captureClipboardIfNew() {
         if UIPasteboard.general.hasStrings,
            let content = UIPasteboard.general.string {
             if let item = viewModel.addItem(content: content) {

@@ -13,9 +13,9 @@ struct DevicesView: View {
                     HStack(spacing: 12) {
                         Image(systemName: "iphone")
                             .font(.title2)
-                            .foregroundStyle(.accent)
+                            .foregroundStyle(.tint)
                             .frame(width: 44, height: 44)
-                            .background(.accent.opacity(0.1))
+                            .background(.tint.opacity(0.1))
                             .clipShape(Circle())
 
                         VStack(alignment: .leading, spacing: 2) {
@@ -159,7 +159,7 @@ struct DevicesView: View {
 
 struct InfoRow: View {
     let icon: String
-    var color: Color = .accent
+    var color: Color = .blue
     let text: String
 
     var body: some View {

@@ -1,8 +1,5 @@
 # Xcode
-*.xcodeproj/project.xcworkspace/xcuserdata/
-*.xcodeproj/xcuserdata/
-*.xcworkspace/xcuserdata/
-*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+*.xcodeproj/
 DerivedData/
 build/
 *.pbxuser
@@ -34,3 +31,4 @@ relay-server/node_modules/
 *.swp
 *~
 xcuserdata/
+local.yml

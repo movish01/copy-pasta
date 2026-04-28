@@ -10,6 +10,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM}
 
 targets:
   CopyPastaMac:
@@ -22,6 +24,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.copypasta.mac
         PRODUCT_NAME: CopyPasta
+        GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_LSUIElement: true
         MACOSX_DEPLOYMENT_TARGET: "14.0"
         CODE_SIGN_ENTITLEMENTS: CopyPastaMac.entitlements
@@ -42,6 +45,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.copypasta.ios
         PRODUCT_NAME: CopyPasta
+        GENERATE_INFOPLIST_FILE: YES
         IPHONEOS_DEPLOYMENT_TARGET: "17.0"
         INFOPLIST_KEY_CFBundleDisplayName: CopyPasta
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
@@ -54,7 +58,7 @@ targets:
       path: CopyPastaiOS.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.copypasta.shared
+          - group.com.mm.copypasta.shared
 
   CopyPastaShareExtension:
     type: app-extension

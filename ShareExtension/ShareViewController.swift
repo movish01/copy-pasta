@@ -49,7 +49,7 @@ class ShareViewController: UIViewController {
 
     private func saveClipboardItem(content: String, type: ClipboardItem.ContentType) {
         // Save to shared UserDefaults (app group) so the main app picks it up
-        let defaults = UserDefaults(suiteName: "group.com.copypasta.shared")
+        let defaults = UserDefaults(suiteName: "group.com.mm.copypasta.shared")
         var pending = defaults?.array(forKey: "pendingItems") as? [[String: String]] ?? []
         pending.append([
             "content": content,

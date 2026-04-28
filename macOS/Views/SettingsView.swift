@@ -138,7 +138,7 @@ struct SettingsView: View {
         VStack(spacing: 16) {
             Image(systemName: "doc.on.clipboard.fill")
                 .font(.system(size: 48))
-                .foregroundStyle(.accent)
+                .foregroundStyle(.tint)
 
             Text("CopyPasta")
                 .font(.title)
